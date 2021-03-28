@@ -29,9 +29,13 @@ app.use((req, res, next) => {
         next();
     }
 }, (req, res, next) => {
-    
     next()
 });
+
+app.use(express.static('public'))
+app.get('/',(req,res)=>{
+    res.sendFile('index.html')
+})
 var homeRoute = require('./routes/homeRoute');
 homeRoute(app)
 app.use((req, res) => {
