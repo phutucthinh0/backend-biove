@@ -1,0 +1,9 @@
+module.exports = (app) => {
+    let userHandlers = require('../controllers/userController.js');
+
+    app.route('/auth/register')
+        .post(userHandlers.register);
+
+    app.route('/auth/sign_in')
+        .post(userHandlers.sign_in);
+};
