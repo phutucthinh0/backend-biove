@@ -1,30 +1,32 @@
 {
   "files": {
     "main.css": "./static/css/main.d2041e9c.chunk.css",
-    "main.js": "./static/js/main.e4ab3bbc.chunk.js",
-    "main.js.map": "./static/js/main.e4ab3bbc.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.da07f3d5.js",
-    "runtime-main.js.map": "./static/js/runtime-main.da07f3d5.js.map",
-    "static/js/2.f3fa1008.chunk.js": "./static/js/2.f3fa1008.chunk.js",
-    "static/js/2.f3fa1008.chunk.js.map": "./static/js/2.f3fa1008.chunk.js.map",
-    "static/js/3.09180bdd.chunk.js": "./static/js/3.09180bdd.chunk.js",
-    "static/js/3.09180bdd.chunk.js.map": "./static/js/3.09180bdd.chunk.js.map",
+    "main.js": "./static/js/main.7eb99cb2.chunk.js",
+    "main.js.map": "./static/js/main.7eb99cb2.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.855e19cd.js",
+    "runtime-main.js.map": "./static/js/runtime-main.855e19cd.js.map",
+    "static/js/2.568c7d84.chunk.js": "./static/js/2.568c7d84.chunk.js",
+    "static/js/2.568c7d84.chunk.js.map": "./static/js/2.568c7d84.chunk.js.map",
+    "static/js/3.cb4804cd.chunk.js": "./static/js/3.cb4804cd.chunk.js",
+    "static/js/3.cb4804cd.chunk.js.map": "./static/js/3.cb4804cd.chunk.js.map",
     "index.html": "./index.html",
     "static/css/main.d2041e9c.chunk.css.map": "./static/css/main.d2041e9c.chunk.css.map",
-    "static/js/2.f3fa1008.chunk.js.LICENSE.txt": "./static/js/2.f3fa1008.chunk.js.LICENSE.txt",
+    "static/js/2.568c7d84.chunk.js.LICENSE.txt": "./static/js/2.568c7d84.chunk.js.LICENSE.txt",
     "static/media/carouselImage.2bbc042d.png": "./static/media/carouselImage.2bbc042d.png",
     "static/media/carouselImage2.979bea8b.png": "./static/media/carouselImage2.979bea8b.png",
     "static/media/heatmap.11210c05.png": "./static/media/heatmap.11210c05.png",
     "static/media/introductionImage1.4c1c3d0a.png": "./static/media/introductionImage1.4c1c3d0a.png",
     "static/media/introductionImage2.770df477.png": "./static/media/introductionImage2.770df477.png",
     "static/media/landing.a93aebd4.png": "./static/media/landing.a93aebd4.png",
+    "static/media/myCampaignCardImage.582dff6a.png": "./static/media/myCampaignCardImage.582dff6a.png",
+    "static/media/profileImage.954b010d.png": "./static/media/profileImage.954b010d.png",
     "static/media/videoThumbnail.5f34faf7.png": "./static/media/videoThumbnail.5f34faf7.png",
     "static/media/vietbando.1606d157.png": "./static/media/vietbando.1606d157.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.da07f3d5.js",
-    "static/js/2.f3fa1008.chunk.js",
+    "static/js/runtime-main.855e19cd.js",
+    "static/js/2.568c7d84.chunk.js",
     "static/css/main.d2041e9c.chunk.css",
-    "static/js/main.e4ab3bbc.chunk.js"
+    "static/js/main.7eb99cb2.chunk.js"
   ]
 }

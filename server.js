@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 const port = 2000;
 const jwt = require("jsonwebtoken");
+const cors = require('cors')
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
@@ -14,9 +15,11 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
 }));
+app.use(cors())
 app.listen(port, () => {
     console.log('server is running')
 })
+
 app.use((req, res, next) => {
     if (req.headers && req.headers.authorization) {
         jwt.verify(req.headers.authorization, key.private, (err, decode) => {
@@ -36,9 +39,10 @@ app.use(express.static('public'))
 app.get('/',(req,res)=>{
     res.sendFile('index.html')
 })
+
 var homeRoute = require('./routes/homeRoute');
 homeRoute(app)
 app.use((req, res) => {
-    res.status(404).send({ url: req.originalUrl + ' not found' })
+    res.status(404).json({ message: req.originalUrl + ' not found' })
 });
 module.exports = app;

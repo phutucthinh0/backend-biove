@@ -12,8 +12,8 @@ const userSchema = new Schema({
         trim: true,
         required: true
     },
-    "username": String,
     "password": String,
+    "avatar": String,
     "campaigns": String,
     "community": String,
     "friends": String,
