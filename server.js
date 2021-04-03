@@ -2,7 +2,8 @@ const key = require('./key.json');
 const mongoose = require('mongoose');
 const mongoDB = 'mongodb://127.0.0.1/biove';
 const db = mongoose.connection;
-const User = require('./models/users.model');
+require('./models/users.model');
+require('./models/communities.model');
 const express = require('express');
 const app = express();
 const port = 2000;
@@ -35,13 +36,10 @@ app.use((req, res, next) => {
     next()
 });
 
-app.use(express.static('public'))
-app.get('/',(req,res)=>{
-    res.sendFile('index.html')
-})
-
 var homeRoute = require('./routes/homeRoute');
+var plantingRoute = require('./routes/plantingRoute')
 homeRoute(app)
+plantingRoute(app)
 app.use((req, res) => {
     res.status(404).json({ message: req.originalUrl + ' not found' })
 });
