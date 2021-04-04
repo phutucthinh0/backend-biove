@@ -21,6 +21,7 @@ const communitySchema = new Schema({
     "description": String,
     "stories": [],
     "totalMoney": Number,
-    "totalTree": Number
+    "totalTree": Number,
+    "avatar":String
 })
 module.exports = mongoose.model('Community',communitySchema,"communities");
