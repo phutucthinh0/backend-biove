@@ -4,6 +4,7 @@ const mongoDB = 'mongodb://127.0.0.1/biove';
 const db = mongoose.connection;
 require('./models/users.model');
 require('./models/communities.model');
+require('./models/campaigns.model');
 const express = require('express');
 const app = express();
 const port = 2000;
@@ -20,11 +21,29 @@ app.use(cors())
 app.listen(port, () => {
     console.log('server is running')
 })
+// middleware cho client
+// app.use((req, res, next) => {
+//     if (req.headers && req.headers.authorization) {
+//         jwt.verify(req.headers.authorization, key.private, (err, decode) => {
+//             req._id = decode._id;
+//             if (err) req._id = undefined;
+//             next();
+//         });
+//     } else {
+//         req._id = undefined;
+//         next();
+//     }
+// }, (req, res, next) => {
+//     next()
+// });
 
+
+// middleware cho admin
 app.use((req, res, next) => {
     if (req.headers && req.headers.authorization) {
         jwt.verify(req.headers.authorization, key.private, (err, decode) => {
             req._id = decode._id;
+            if(decode.role == "admin") req._role = "admin";
             if (err) req._id = undefined;
             next();
         });

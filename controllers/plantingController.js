@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Community = mongoose.model('Community');
 const User = mongoose.model('User');
+const Campaign = mongoose.model('Campaign');
 exports.registerCommunity = (req, res) => {
     User.findOne({
         _id: req._id
@@ -23,4 +24,23 @@ exports.registerCommunity = (req, res) => {
             })
         }
     });
+}
+exports.registerCampaign = (req,res) => {
+    if (req._role!="admin")return res.status(403).json({message:"Authorization failed. User not enough role"})
+    Community.findOne({
+        _id: req.body.community_id
+    },(err, community)=>{
+        if (!community) {
+            return res.status(500).json({ message: 'Community not found' });
+        }
+        let newCampaign = new Campaign(req.body);
+        newCampaign.save((err, campaign_new)=>{
+            if (err) {
+                return res.status(500).json({
+                    message: err
+                });
+            }
+            return res.json(campaign_new)
+        })
+    })
 }
