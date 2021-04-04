@@ -44,3 +44,23 @@ exports.registerCampaign = (req,res) => {
         })
     })
 }
+exports.getListCommunities = (req,res) =>{
+    Community.find((err,data) => {
+        if (err) {
+            return res.status(500).json({
+                message: err
+            });
+        }
+        let res_communities = []
+        data.map(community => {
+            res_communities.push(
+                {
+                    _id:community._id,
+                    name:community.name,
+                    avatar:community.avatar
+                }
+            )
+        })
+        res.json(res_communities)
+    })
+}
