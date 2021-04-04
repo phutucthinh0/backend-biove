@@ -6,4 +6,6 @@ module.exports = (app) => {
         .post(plantingHandlers.registerCampaign)
     app.route('/planting/get_list_communities')
         .get(plantingHandlers.getListCommunities)
+    app.route('/planting/get_list_campaigns')
+        .post(plantingHandlers.getListCampaigns)
 };

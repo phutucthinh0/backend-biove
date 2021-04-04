@@ -43,6 +43,17 @@ exports.registerCampaign = (req, res) => {
         })
     })
 }
+exports.registerTree = (req, res) => {
+    if (req._role != "admin") return res.status(403).json({ message: "Authorization failed. User not enough role" })
+    Campaign.findOne({
+        _id: req.body.campaign_id
+    }, (err, campaign) => {
+        if (!campaign) {
+            return res.status(500).json({ message: 'Campaign not found' });
+        }
+        
+    })
+}
 exports.getListCommunities = (req, res) => {
     Community.find((err, data) => {
         if (err) {
@@ -61,5 +72,15 @@ exports.getListCommunities = (req, res) => {
             )
         })
         res.json(res_communities)
+    })
+}
+exports.getListCampaigns = (req, res) => {
+    Campaign.find({community_id:req.body.community_id},(err,data)=>{
+        if (err) {
+            return res.status(500).json({
+                message: err
+            });
+        }
+        return res.json(data)
     })
 }
