@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Community = mongoose.model('Community');
 const User = mongoose.model('User');
 const Campaign = mongoose.model('Campaign');
+const Tree = mongoose.model('Tree');
 exports.registerCommunity = (req, res) => {
     User.findOne({
         _id: req._id
@@ -51,9 +52,18 @@ exports.registerTree = (req, res) => {
         if (!campaign) {
             return res.status(500).json({ message: 'Campaign not found' });
         }
-        
+        let newTree = new Tree(req.body)
+        newTree.save((err, tree_new) => {
+            if (err) {
+                return res.status(500).json({
+                    message: err
+                });
+            }
+            return res.json(newTree)
+        })
     })
 }
+
 exports.getListCommunities = (req, res) => {
     Community.find((err, data) => {
         if (err) {
@@ -76,6 +86,16 @@ exports.getListCommunities = (req, res) => {
 }
 exports.getListCampaigns = (req, res) => {
     Campaign.find({community_id:req.body.community_id},(err,data)=>{
+        if (err) {
+            return res.status(500).json({
+                message: err
+            });
+        }
+        return res.json(data)
+    })
+}
+exports.getListTrees = (req, res) => {
+    Tree.find({campaign_id:req.body.campaign_id},(err,data)=>{
         if (err) {
             return res.status(500).json({
                 message: err

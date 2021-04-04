@@ -8,4 +8,6 @@ module.exports = (app) => {
         .get(plantingHandlers.getListCommunities)
     app.route('/planting/get_list_campaigns')
         .post(plantingHandlers.getListCampaigns)
+    app.route('/planting/get_list_trees')
+        .post(plantingHandlers.getListTrees)
 };

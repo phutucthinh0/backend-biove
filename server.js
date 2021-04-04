@@ -5,6 +5,7 @@ const db = mongoose.connection;
 require('./models/users.model');
 require('./models/communities.model');
 require('./models/campaigns.model');
+require('./models/trees.model');
 const express = require('express');
 const app = express();
 const port = 2000;
